@@ -1,0 +1,23 @@
+{
+  "name": "bcdev-p3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexcomanescu/BCDEV-P3.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexcomanescu/BCDEV-P3/issues"
+  },
+  "homepage": "https://github.com/alexcomanescu/BCDEV-P3#readme",
+  "dependencies": {
+    "@truffle/contract": "^4.3.17",
+    "truffle": "^5.3.7"
+  }
+}
