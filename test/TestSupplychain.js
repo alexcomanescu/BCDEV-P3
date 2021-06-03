@@ -57,8 +57,10 @@ contract('SupplyChain', function(accounts) {
         // Declare and Initialize a variable for event
         var eventEmitted = false;
 
+        await supplyChain.addFarmer(originFarmerID);
+
         // Mark an item as Harvested by calling function harvestItem()
-        await supplyChain.harvestItem(upc, originFarmerID, originFarmName, originFarmInformation, originFarmLatitude, originFarmLongitude, productNotes)
+        await supplyChain.harvestItem(upc, originFarmerID, originFarmName, originFarmInformation, originFarmLatitude, originFarmLongitude, productNotes, {from: originFarmerID})
 
         eventEmitted = await eventWasEmitted(supplyChain, 'Harvested');
 
@@ -158,6 +160,8 @@ contract('SupplyChain', function(accounts) {
         
         // Declare and Initialize a variable for event
         var eventEmitted = false;
+
+        await supplyChain.addDistributor(distributorID);
         
         // Mark an item as Sold by calling function buyItem()
         await supplyChain.buyItem(upc, {from:distributorID, value: productPrice});
@@ -208,6 +212,8 @@ contract('SupplyChain', function(accounts) {
         // Declare and Initialize a variable for event
         var eventEmitted = false;              
 
+        await supplyChain.addRetailer(retailerID);
+
         // Mark an item as Received by calling function receiveItem()
         await supplyChain.receiveItem(upc, {from:retailerID});
 
@@ -230,6 +236,8 @@ contract('SupplyChain', function(accounts) {
         
         // Declare and Initialize a variable for event
         var eventEmitted = false;            
+
+        await supplyChain.addConsumer(consumerID);
 
         // Mark an item as Sold by calling function buyItem()
         await supplyChain.purchaseItem(upc, {from:consumerID});

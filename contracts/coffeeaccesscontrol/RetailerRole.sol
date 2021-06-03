@@ -3,9 +3,10 @@ pragma solidity ^0.8.4;
 
 // Import the library 'Roles'
 import "./Roles.sol";
+import "../coffeecore/Ownable.sol";
 
 // Define a contract 'RetailerRole' to manage this role - add, remove, check
-contract RetailerRole {
+contract RetailerRole is Ownable{
   using Roles for Roles.Role;
 
   // Define 2 events, one for Adding, and other for Removing
@@ -22,7 +23,7 @@ contract RetailerRole {
 
   // Define a modifier that checks to see if msg.sender has the appropriate role
   modifier onlyRetailer() {
-    require(isRetailer(msg.sender));
+    require(isRetailer(msg.sender), "Sender is not retailer");
     _;
   }
 
@@ -32,7 +33,7 @@ contract RetailerRole {
   }
 
   // Define a function 'addRetailer' that adds this role
-  function addRetailer(address account) public onlyRetailer {
+  function addRetailer(address account) public onlyOwner {
     _addRetailer(account);
   }
 
