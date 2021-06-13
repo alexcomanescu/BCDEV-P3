@@ -3561,10 +3561,56 @@
   },
   "networks": {
     "4": {
-      "events": {},
+      "events": {
+        "0x2e0ded4123377a3c2bc9a26f1717655a129e2f20752924d42e730ec89c83dbd0": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "FarmerAdded",
+          "type": "event"
+        },
+        "0xa5e0f060af304ab17dd418c7927e3da3ae7868189bf387aee09ab179ccc572f2": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "FarmerRemoved",
+          "type": "event"
+        },
+        "0x5c486528ec3e3f0ea91181cff8116f02bfa350e03b8b6f12e00765adbb5af85c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "oldOwner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "name": "TransferOwnership",
+          "type": "event"
+        }
+      },
       "links": {},
-      "address": "0xFa1128C41E3f86C5e7Cf3499594416dC6fe068AA",
-      "transactionHash": "0x96ae5ad91e88100ccfb720fd03159dad29eb45862e92100a90e47125bd99023b"
+      "address": "0xd4581F69f900f2076e6C93B19345D77B226E9Ea7",
+      "transactionHash": "0x73a15e240bf43e3e309f1ca4ac696794bd5a859afbd8f502a4049327613b5576"
     },
     "5777": {
       "events": {
@@ -3620,7 +3666,7 @@
     }
   },
   "schemaVersion": "3.3.4",
-  "updatedAt": "2021-06-12T15:33:13.791Z",
+  "updatedAt": "2021-06-13T19:47:06.428Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

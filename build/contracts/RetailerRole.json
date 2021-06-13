@@ -3561,10 +3561,56 @@
   },
   "networks": {
     "4": {
-      "events": {},
+      "events": {
+        "0x71ae26cad02663e3d92efd6ec56031a80d74a20c0ab4183faa8bf262261c9baa": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "RetailerAdded",
+          "type": "event"
+        },
+        "0xdb7176e79cffef81cb01767dd0447a0b24bb72ca9778d4b245581086b2a7e6db": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "RetailerRemoved",
+          "type": "event"
+        },
+        "0x5c486528ec3e3f0ea91181cff8116f02bfa350e03b8b6f12e00765adbb5af85c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "oldOwner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "name": "TransferOwnership",
+          "type": "event"
+        }
+      },
       "links": {},
-      "address": "0xA4C725c7b021E4799d1e63aBB78E45694819A6cd",
-      "transactionHash": "0x0d5b1d4d9c75f79c655a5b811bd9122d074f5fd6189cbf447a1a61cfc6f17eca"
+      "address": "0x0Faf240881CE8512969f8a97Bb0689ABa86EA652",
+      "transactionHash": "0xf1bc2131684e5c4adca14e859010a06c9f567c9d6687416566f2498254367ee1"
     },
     "5777": {
       "events": {
@@ -3620,7 +3666,7 @@
     }
   },
   "schemaVersion": "3.3.4",
-  "updatedAt": "2021-06-12T15:33:13.798Z",
+  "updatedAt": "2021-06-13T19:47:06.459Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
