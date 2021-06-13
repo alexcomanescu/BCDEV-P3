@@ -181,7 +181,7 @@ App = {
         try{
             await App.getMetaskAccountID();
 
-            let instance = App.contracts.SupplyChain.deployed();
+            let instance = await App.contracts.SupplyChain.deployed();
 
             let result;        
 
@@ -241,25 +241,6 @@ App = {
             App.productNotes,
             {from: App.metamaskAccountID}
         )
-
-/*
-        App.contracts.SupplyChain.deployed().then(function(instance) {
-            return instance.harvestItem(
-                App.upc, 
-                App.metamaskAccountID, 
-                App.originFarmName, 
-                App.originFarmInformation, 
-                App.originFarmLatitude, 
-                App.originFarmLongitude, 
-                App.productNotes,
-                {from: App.metamaskAccountID}
-            );
-        }).then(function(result) {
-            showOperationResult(result);
-            console.log('harvestItem',result);
-        }).catch(function(err) {
-            console.log(err.message);
-        });*/
     },
 
     processItem: async function (instance) {        
@@ -277,7 +258,7 @@ App = {
     },
 
     buyItem: async function (instance) {
-        const walletValue = web3.utils.toWei("1", "ether");
+        const walletValue = web3.utils.toWei("2", "ether");
         return await instance.buyItem(App.upc, {from: App.metamaskAccountID, value: walletValue});    
     },
 
@@ -294,12 +275,18 @@ App = {
     },
 
     fetchItemBufferOne: async function (instance) {
+        if(!instance){
+            instance = await App.contracts.SupplyChain.deployed();
+        }
         App.upc = $('#upc').val();
         console.log('upc',App.upc);    
         return await instance.fetchItemBufferOne(App.upc);        
     },
 
     fetchItemBufferTwo: async function (instance) {
+        if(!instance){
+            instance = await App.contracts.SupplyChain.deployed();
+        }
         App.upc = $('#upc').val();        
         return await instance.fetchItemBufferTwo.call(App.upc);        
     },
