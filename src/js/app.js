@@ -23,20 +23,6 @@ App = {
         return await App.initWeb3();
     },
 
-    /*
-(0) 0xcf15b680f88f8557c756ca2f07e2e7fa2e963b2a
-(1) 0x3f1b5216f3e2fc6142cc9bfbef5f90bd5549c052
-(2) 0xcddd8d9c31797c06d23fceaf45eaf040d3f85da9
-(3) 0x6f8a9f4ce4ed416b14916c9c41a7052e7c3676c9
-(4) 0x321457318ad76ace0866a7be8bd4b4d150dc9564
-(5) 0xdfb99f1dcc8d0411b132d44c33bee0daff4dce72
-(6) 0x91446e671053a848263a6581334115f115a531f7
-(7) 0x24eeb1d7916ff08c9793f5e6c70fc035e58fd04c
-(8) 0xe9100a70caf92b9c825ace482c97f2f8306f1961
-(9) 0x5114186f757ee4c5fb571ce7e7702e6d6b503216
-
-    */
-
     readForm: function () {
         App.sku = $("#sku").val();
         App.upc = $("#upc").val();
@@ -72,6 +58,7 @@ App = {
     initWeb3: async function () {
         /// Find or Inject Web3 Provider
         /// Modern dapp browsers...
+        
         if (window.ethereum) {
             App.web3Provider = window.ethereum;
             try {
@@ -88,8 +75,9 @@ App = {
         }
         // If no injected web3 instance is detected, fall back to Ganache
         else {
-            App.web3Provider = new Web3.providers.HttpProvider('http://localhost:7545');
+            App.web3Provider = new Web3.providers.HttpProvider('http://localhost:9545');
         }
+                
 
         await App.getMetaskAccountID();
 
@@ -252,13 +240,13 @@ App = {
     },
 
     sellItem: async function (instance) {
-        const productPrice = web3.utils.toWei("1", "ether");
+        const productPrice = web3.utils.toWei(App.productPrice, "ether");
         console.log('productPrice',productPrice);
-        return await instance.sellItem(App.upc, App.productPrice, {from: App.metamaskAccountID});
+        return await instance.sellItem(App.upc, productPrice, {from: App.metamaskAccountID});
     },
 
     buyItem: async function (instance) {
-        const walletValue = web3.utils.toWei("2", "ether");
+        const walletValue = web3.utils.toWei(App.productPrice, "ether");
         return await instance.buyItem(App.upc, {from: App.metamaskAccountID, value: walletValue});    
     },
 
